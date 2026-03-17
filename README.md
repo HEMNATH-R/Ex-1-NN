@@ -1,7 +1,6 @@
-<H3>HEMNATH R</H3>
-<H3>212224240057</H3>
+<H3> NAME : HEMNATH R </H3>
+<H3>REGISTER NO.: 212224240057 </H3>
 <H3>EX. NO.1</H3>
-<H3>DATE : 31.01.2026</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +36,75 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+from google.colab import files
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df = pd.read_csv("/content/Churn_Modelling.csv")
+df
+x = df.iloc[:, :-1].values
+print(x)
+y  = df.iloc[:, -1].values
+print(y)
+df.duplicated() 
+print(df.describe())
+scaler = MinMaxScaler()
+numeric_cols = df.select_dtypes(include=['number']).columns
+df_scaled = pd.DataFrame(scaler.fit_transform(df[numeric_cols]), columns=numeric_cols)
+print(df_scaled)
+x_train , x_test ,y_train , y_test = train_test_split(x,y,test_size = 0.2)
+print(x_train)
+print(y_train)
+x_train , x_test ,y_train , y_test = train_test_split(x,y,test_size = 0.2)
+print(x_test)
+print(y_test)
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+# Dataset :
+
+<img width="1455" height="457" alt="image" src="https://github.com/user-attachments/assets/48b71114-c312-476d-8d40-cb3b6730d015" />
+
+# Spliting the data :
+
+<img width="487" height="149" alt="image" src="https://github.com/user-attachments/assets/8fcbb6a0-79d8-430f-88bc-9578e0dafc9a" />
+
+
+<img width="257" height="35" alt="image" src="https://github.com/user-attachments/assets/5e60f17d-8ac9-4408-949c-8fa556277b9d" />
+
+
+# Finding Missing Value:
+
+<img width="271" height="339" alt="image" src="https://github.com/user-attachments/assets/bef3c8f7-790f-4b32-90b3-aea649d0ac9f" />
+
+# Finding Duplicates:
+
+<img width="248" height="515" alt="image" src="https://github.com/user-attachments/assets/7506b7eb-7aef-4855-8949-ae5381f0d3fb" />
+
+# Describe:
+
+<img width="661" height="223" alt="image" src="https://github.com/user-attachments/assets/54c0faa4-6936-4f7c-96d6-10b30f45f9d3" />
+
+# Label Encoding :
+
+<img width="574" height="287" alt="image" src="https://github.com/user-attachments/assets/7c949db7-1566-4ec0-aca1-f85b22995927" />
+
+# Training the dataset :
+
+<img width="521" height="169" alt="image" src="https://github.com/user-attachments/assets/ac1d522d-7429-44ae-aed9-d7bc0ccf0db3" />
+
+# Testing the dataset :
+
+<img width="468" height="171" alt="image" src="https://github.com/user-attachments/assets/fc66f172-5163-41c0-ab52-f68350a9ac5f" />
+
+
+
+
+
 
 
 ## RESULT:
